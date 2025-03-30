@@ -1,0 +1,16 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+#info {
+    margin-top: 20px;
+}
+
+img {
+    width: 150px;
+}
+
+#name{
+    width: 20%;
+}
