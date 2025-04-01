@@ -394,6 +394,7 @@ body {
         width: 25px;
         height: 25px;
     }
+<<<<<<< HEAD
 }
 
 /* === EFECTOS DE BOTÓN Y TARJETAS === */
@@ -441,3 +442,6 @@ body {
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
 }
+=======
+}
+>>>>>>> 6ce9b27cb881ef2382cfc1c26fecb128bfcb9994
