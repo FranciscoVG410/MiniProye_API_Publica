@@ -164,15 +164,7 @@ document.getElementById("btn_sorpresa").addEventListener("click", async () => {
     if (nameElement.textContent !== "---") {
         const alert = document.createElement('div');
         alert.textContent = `¡Profesor Oak te envió un ${nameElement.textContent}!`;
-        alert.className = "alert alert-warning text-center";
-        alert.style.animation = "fadeIn 0.5s ease-out";
-        alert.style.fontWeight = "bold";
-        alert.style.fontSize = "1.2em";
-        alert.style.position = "fixed";
-        alert.style.top = "20px";
-        alert.style.left = "50%";
-        alert.style.transform = "translateX(-50%)";
-        alert.style.zIndex = "999";
+        alert.className = "alert alert-warning text-center alert-custom"; // Usa la misma clase para todas las alertas
         document.body.appendChild(alert);
         setTimeout(() => alert.remove(), 3000);
     }
