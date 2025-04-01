@@ -51,15 +51,28 @@ async function buscarPokemon() {
 function createPokemonCard(data, speciesData, number, generation) {
     const card = document.createElement('div');
     card.className = 'pokemon-card';
+    
+    // Obtener los tipos del Pokémon
+    const types = data.types.map(t => 
+        `<span class="pokemon-type type-${t.type.name}">${t.type.name}</span>`
+    ).join('');
+    
     card.innerHTML = `
-        <h3 class="text-capitalize">${data.name}</h3>
-        <img class="pokemon-img" src="${data.sprites.other['official-artwork'].front_default}" alt="${data.name}">
-        <p><strong>N.º:</strong> ${number}</p>
-        <p><strong>Tipo:</strong> ${data.types.map(t => t.type.name).join(', ')}</p>
-        <p><strong>Generación:</strong> ${generation}</p>
-        <p><strong>Altura:</strong> ${data.height / 10}m</p>
-        <p><strong>Peso:</strong> ${data.weight / 10}kg</p>
-        <button class="release-btn">Liberar</button>
+        <div class="pokemon-img-container">
+            <img class="pokemon-img" src="${data.sprites.other['official-artwork'].front_default || data.sprites.front_default}" alt="${data.name}">
+        </div>
+        <div class="pokemon-details">
+            <h3 class="pokemon-name">${data.name}</h3>
+            <p class="pokemon-number">N.º ${number}</p>
+            <div class="pokemon-types">${types}</div>
+            <div class="pokemon-stats">
+                <div class="pokemon-stat"><span>Altura:</span> ${data.height / 10}m</div>
+                <div class="pokemon-stat"><span>Peso:</span> ${data.weight / 10}kg</div>
+                <div class="pokemon-stat"><span>Generación:</span> ${generation}</div>
+                <div class="pokemon-stat"><span>Experiencia:</span> ${data.base_experience || '?'}</div>
+            </div>
+            <button class="release-btn">Liberar</button>
+        </div>
     `;
 
     card.querySelector('.release-btn').addEventListener('click', () => {
