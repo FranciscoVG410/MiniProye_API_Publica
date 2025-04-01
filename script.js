@@ -178,3 +178,18 @@ document.head.insertAdjacentHTML('beforeend', `
         }
     </style>
 `);
+function scalePokedexElements() {
+    const pokedexContainer = document.querySelector('.pokedex-container');
+    const scale = pokedexContainer.offsetWidth / 1223; // 1223 = ancho original
+    
+    // Elementos a escalar
+    const elementsToScale = document.querySelectorAll('.pokedex-display, .search-section');
+    
+    elementsToScale.forEach(element => {
+        element.style.transform = `scale(${scale})`;
+    });
+}
+
+// Ejecutar al cargar y al cambiar tamaño
+window.addEventListener('load', scalePokedexElements);
+window.addEventListener('resize', scalePokedexElements);
